@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portfolio Nathan Gris</title>
+</head>
+
+<body class="font-[Poppins] text-gray-100 bg-gray-900">
+    <header
+        class="flex flex-col items-center bg-[url('pictures/background-image.webp')] bg-cover bg-center bg-no-repeat h-[100vh] relative">
+        <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 px-6 py-4">
+            <div class="container mx-auto flex flex-wrap items-center justify-between">
+                <a href="#" class="flex items-center">
+                    <h1
+                        class="text-3xl md:text-4xl text-gray-100 font-bold drop-shadow-[2px_2px_3px_rgba(0,0,0,0.8)] transition-all">
+                        <span class="text-blue-400">N</span>athan <span class="text-blue-400">G</span>ris
+                    </h1>
+                </a>
+
+                <!-- Menu hamburger pour mobile -->
+                <button id="menu-toggle"
+                    class="md:hidden flex items-center px-3 py-2 border rounded border-gray-400 hover:border-white">
+                    <svg class="fill-current h-5 w-5 text-gray-100" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                    </svg>
+                </button>
+
+                <!-- Navigation items -->
+                <div id="menu" class="hidden md:flex w-full md:w-auto">
+                    <ul class="flex flex-col md:flex-row md:ml-auto md:space-x-8 mt-4 md:mt-0">
+                        <li class="mb-4 md:mb-0">
+                            <a href="#about"
+                                class="nav-link text-xl md:text-2xl font-medium text-gray-100 hover:text-blue-400 transition-colors duration-300 relative group">
+                                À propos
+                                <span
+                                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                        </li>
+                        <li class="mb-4 md:mb-0">
+                            <a href="#skills"
+                                class="nav-link text-xl md:text-2xl font-medium text-gray-100 hover:text-blue-400 transition-colors duration-300 relative group">
+                                Compétences
+                                <span
+                                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                        </li>
+                        <li class="mb-4 md:mb-0">
+                            <a href="#diplomes"
+                                class="nav-link text-xl md:text-2xl font-medium text-gray-100 hover:text-blue-400 transition-colors duration-300 relative group">
+                                Diplômes
+                                <span
+                                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                        </li>
+                        <li class="mb-4 md:mb-0">
+                            <a href="#projects"
+                                class="nav-link text-xl md:text-2xl font-medium text-gray-100 hover:text-blue-400 transition-colors duration-300 relative group">
+                                Projets
+                                <span
+                                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                        </li>
+                        <li class="mb-4 md:mb-0">
+                            <a href="#veille-techno"
+                                class="nav-link text-xl md:text-2xl font-medium text-gray-100 hover:text-blue-400 transition-colors duration-300 relative group">
+                                Veille Techno
+                                <span
+                                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact"
+                                class="nav-link text-xl md:text-2xl font-medium text-gray-100 hover:text-blue-400 transition-colors duration-300 relative group">
+                                Contact
+                                <span
+                                    class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="flex justify-center items-center w-full h-full">
+            <h2 id="title-about" class="text-5xl text-gray-100 font-semibold drop-shadow-[4px_4px_6px_rgba(0,0,0,0.8)]">
+                Junior Web Developer
+            </h2>
+        </div>
+        <a href="#about"
+            class="absolute bottom-10 animate-bounce flex items-center justify-center p-2 w-14 h-14 rounded-full bg-blue-500/30 backdrop-blur-sm border border-blue-400/50 shadow-lg hover:bg-blue-500/50 transition-all duration-300 group">
+            <svg class="w-9 h-9 fill-white stroke-white stroke-2 drop-shadow-[0_0_5px_rgba(59,130,246,0.9)] group-hover:scale-110 transition-transform duration-300"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path>
+            </svg>
+        </a>
+    </header>
+    <!-- Modal for displaying images -->
+    <div id="image-modal" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-50">
+        <button id="close-modal"
+            class="absolute top-5 right-5 text-white text-5xl hover:text-red-500 transition duration-300 focus:outline-none">&times;</button>
+        <img id="modal-image" src="" alt="Project Image" class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg">
+    </div>
+    <main id="main" class="min-h-[20vh]">
+        <div id="about-href" class="min-h-[10px]"></div>
+
+        <!-- Section À propos -->
+        <section id="about" class="bg-gradient-to-b from-gray-900 to-gray-800 py-31">
+            <div class="container mx-auto flex flex-col items-center text-white">
+                <h1 class="text-5xl font-bold mb-3">
+                    À propos de moi
+                </h1>
+                <div class="w-24 h-1 bg-blue-500 mb-12 rounded-full"></div>
+
+                <div class="w-full flex flex-col md:flex-row justify-between items-center gap-10 px-4">
+                    <!-- Photo et réseaux sociaux -->
+                    <div class="md:w-1/3 flex flex-col items-center">
+                        <div class="w-64 h-64 rounded-full border-4 border-blue-500 overflow-hidden shadow-xl mb-6">
+                            <img src="pictures/photo-profil.jpg" alt="photo de profil">
+                        </div>
+                        <div class="flex gap-4 mt-4">
+                            <a target="_blank" href="https://github.com/0MyTiX0"
+                                class="w-12 h-12 bg-gray-700 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all">
+                                <i class="fab fa-github text-2xl"></i>
+                            </a>
+                            <a target="_blank" href="https://www.linkedin.com/in/nathan-gris-9848252a5/"
+                                class="w-12 h-12 bg-gray-700 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all">
+                                <i class="fab fa-linkedin-in text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Texte de présentation -->
+                    <div class="md:w-2/3 space-y-6 max-w-2xl">
+                        <article class="bg-gray-800/50 p-8 rounded-xl shadow-lg border-l-4 border-blue-500">
+                            <h2 class="text-3xl font-bold text-blue-400 mb-4 flex items-center">
+                                <i class="fas fa-user-graduate text-blue-500 mr-3"></i>Qui suis-je ?
+                            </h2>
+                            <p class="text-lg text-gray-200 leading-relaxed">
+                                Je m'appelle <span class="text-blue-400 font-bold">Nathan Gris</span>, étudiant de <span
+                                    class="text-blue-400 font-bold">19 ans</span> en <span
+                                    class="text-blue-400 font-bold">BTS Services Informatiques aux Organisations</span>,
+                                option <span class="text-blue-400 font-bold">Solutions Logicielles et Applications
+                                    Métiers
+                                    (SLAM)</span> au Lycée Saint Michel d'Annecy. Passionné par le développement web, je
+                                cherche continuellement à améliorer mes compétences et à relever de nouveaux défis.
+                            </p>
+                        </article>
+
+                        <article class="bg-gray-800/50 p-8 rounded-xl shadow-lg border-l-4 border-purple-500">
+                            <h2 class="text-3xl font-bold text-purple-400 mb-4 flex items-center">
+                                <i class="fas fa-rocket text-purple-500 mr-3"></i>Mon objectif
+                            </h2>
+                            <p class="text-lg text-gray-200 leading-relaxed">
+                                Devenir un développeur web full-stack accompli, capable de concevoir et réaliser des
+                                applications
+                                web modernes, performantes et sécurisées. Je souhaite intégrer une équipe dynamique où
+                                je pourrai
+                                continuer à développer mes compétences et contribuer à des projets innovants.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Compétences -->
+        <section id="skills" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-white mb-3">Mes Compétences</h2>
+                <div class="w-24 h-1 bg-indigo-500 mx-auto mb-12 rounded-full"></div>
+
+                <div class="flex flex-wrap justify-center gap-6 mb-12">
+                    <button
+                        class="skill-filter active px-4 py-2 bg-indigo-600 text-white rounded-full text-sm font-medium hover:bg-indigo-700 transition duration-300">Toutes</button>
+                    <button
+                        class="skill-filter px-4 py-2 bg-gray-700 text-white rounded-full text-sm font-medium hover:bg-indigo-600 transition duration-300">Frontend</button>
+                    <button
+                        class="skill-filter px-4 py-2 bg-gray-700 text-white rounded-full text-sm font-medium hover:bg-indigo-600 transition duration-300">Backend</button>
+                    <button
+                        class="skill-filter px-4 py-2 bg-gray-700 text-white rounded-full text-sm font-medium hover:bg-indigo-600 transition duration-300">Outils</button>
+                </div>
+
+                <div id="skills-grid"
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full justify-items-center">
+                    <!-- Compétences Frontend -->
+                    <div
+                        class="skill-card opacity-0 frontend flex flex-col items-center justify-between p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-lg border-t-2 border-orange-500 hover:scale-105 hover:shadow-xl transition-all duration-3 min-h-[260px] w-full max-w-[280px] mx-auto text-center">
+                        <i class="fab fa-html5 text-6xl text-orange-500 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4 w-full flex items-center justify-center">HTML 5
+                        </h3>
+                        <div class="skill-graphic">
+                            <div class="circular-progress" style="--progress-color: #F97316;">
+                                <div class="inner-circle">
+                                    <span class="skill-icon">
+                                        <i class="fas fa-sitemap text-orange-500"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="skill-card opacity-0 frontend flex flex-col items-center justify-between p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-lg border-t-2 border-blue-400 hover:scale-105 hover:shadow-xl transition-all duration-3 min-h-[260px] w-full max-w-[280px] mx-auto text-center">
+                        <i class="fab fa-css3-alt text-6xl text-blue-400 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4 w-full flex items-center justify-center">CSS 3
+                        </h3>
+                        <div class="skill-graphic">
+                            <div class="circular-progress" style="--progress-color: #3B82F6;">
+                                <div class="inner-circle">
+                                    <span class="skill-icon">
+                                        <i class="fas fa-paint-brush text-blue-400"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="skill-card opacity-0 frontend flex flex-col items-center justify-between p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-lg border-t-2 border-yellow-400 hover:scale-105 hover:shadow-xl transition-all duration-3 min-h-[260px] w-full max-w-[280px] mx-auto text-center">
+                        <i class="fab fa-js-square text-6xl text-yellow-400 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4 w-full flex items-center justify-center">
+                            JavaScript</h3>
+                        <div class="skill-graphic">
+                            <div class="circular-progress" style="--progress-color: #FACC15;">
+                                <div class="inner-circle">
+                                    <span class="skill-icon">
+                                        <i class="fas fa-code text-yellow-400"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="skill-card opacity-0 frontend flex flex-col items-center justify-between p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-lg border-t-2 border-teal-500 hover:scale-105 hover:shadow-xl transition-all duration-3 min-h-[260px] w-full max-w-[280px] mx-auto text-center">
+                        <i class="fab fa-css3 text-6xl text-teal-500 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4 w-full flex items-center justify-center">Tailwind
+                            CSS</h3>
+                        <div class="skill-graphic">
+                            <div class="circular-progress" style="--progress-color: #14B8A6;">
+                                <div class="inner-circle">
+                                    <span class="skill-icon">
+                                        <i class="fas fa-paint-brush text-teal-500"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="skill-card opacity-0 frontend flex flex-col items-center justify-between p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-lg border-t-2 border-purple-600 hover:scale-105 hover:shadow-xl transition-all duration-3 min-h-[260px] w-full max-w-[280px] mx-auto text-center">
+                        <i class="fab fa-bootstrap text-6xl text-purple-600 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4 w-full flex items-center justify-center">Bootstrap
+                        </h3>
+                        <div class="skill-graphic">
+                            <div class="circular-progress" style="--progress-color: #A855F7;">
+                                <div class="inner-circle">
+                                    <span class="skill-icon">
+                                        <i class="fas fa-paint-brush text-purple-600"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="skill-card opacity-0 frontend flex flex-col items-center justify-between p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-lg border-t-2 border-blue-500 hover:scale-105 hover:shadow-xl transition-all duration-3 min-h-[260px] w-full max-w-[280px] mx-auto text-center">
+                        <i class="fab fa-react text-6xl text-blue-500 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4 w-full flex items-center justify-center">React
+                        </h3>
+                        <div class="skill-graphic">
+                            <div class="circular-progress" style="--progress-color: #3B82F6;">
+                                <div class="inner-circle">
+                                    <span class="skill-icon">
+                                        <i class="fas fa-code-branch text-blue-500"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Compétences Backend -->
+                    <div
+                        class="skill-card opacity-0 backend flex flex-col items-center justify-between p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-lg border-t-2 border-indigo-700 hover:scale-105 hover:shadow-xl transition-all duration-3 min-h-[260px] w-full max-w-[280px] mx-auto text-center">
+                        <i class="fab fa-php text-6xl text-indigo-600 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4 w-full flex items-center justify-center">PHP</h3>
+                        <div class="skill-graphic">
+                            <div class="circular-progress" style="--progress-color: #6366F1;">
+                                <div class="inner-circle">
+                                    <span class="skill-icon">
+                                        <i class="fas fa-code text-indigo-600"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="skill-card opacity-0 backend flex flex-col items-center justify-between p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-lg border-t-2 border-blue-500 hover:scale-105 hover:shadow-xl transition-all duration-3 min-h-[260px] w-full max-w-[280px] mx-auto text-center">
+                        <i class="fab fa-python text-6xl text-blue-400 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4 w-full flex items-center justify-center">Python
+                        </h3>
+                        <div class="skill-graphic">
+                            <div class="circular-progress" style="--progress-color: #60A5FA;">
+                                <div class="inner-circle">
+                                    <span class="skill-icon">
+                                        <i class="fas fa-terminal text-blue-400"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="skill-card opacity-0 outils flex flex-col items-center justify-between p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-lg border-t-2 border-gray-400 hover:scale-105 hover:shadow-xl transition-all duration-3 min-h-[260px] w-full max-w-[280px] mx-auto text-center">
+                        <i class="fas fa-database text-6xl text-gray-400 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4 w-full flex items-center justify-center">SQL</h3>
+                        <div class="skill-graphic">
+                            <div class="circular-progress" style="--progress-color: #9CA3AF;">
+                                <div class="inner-circle">
+                                    <span class="skill-icon">
+                                        <i class="fas fa-database text-gray-400"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="skill-card opacity-0 backend flex flex-col items-center justify-between p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-lg border-t-2 border-red-600 hover:scale-105 hover:shadow-xl transition-all duration-3 min-h-[260px] w-full max-w-[280px] mx-auto text-center">
+                        <i class="fab fa-laravel text-6xl text-red-500 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4 w-full flex items-center justify-center">Laravel
+                        </h3>
+                        <div class="skill-graphic">
+                            <div class="circular-progress" style="--progress-color: #EF4444;">
+                                <div class="inner-circle">
+                                    <span class="skill-icon">
+                                        <i class="fas fa-cogs text-red-500"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="skill-card opacity-0 backend flex flex-col items-center justify-between p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-lg border-t-2 border-white hover:scale-105 hover:shadow-xl transition-all duration-3 min-h-[260px] w-full max-w-[280px] mx-auto text-center">
+                        <i class="fab fa-symfony text-6xl text-white mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4 w-full flex items-center justify-center">Symfony
+                        </h3>
+                        <div class="skill-graphic">
+                            <div class="circular-progress" style="--progress-color: #FFFFFF;">
+                                <div class="inner-circle">
+                                    <span class="skill-icon">
+                                        <i class="fas fa-cogs text-white"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Outils -->
+                    <div
+                        class="skill-card opacity-0 outils flex flex-col items-center justify-between p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl shadow-lg border-t-2 border-purple-500 hover:scale-105 hover:shadow-xl transition-all duration-3 min-h-[260px] w-full max-w-[280px] mx-auto text-center">
+                        <i class="fab fa-git-alt text-6xl text-purple-500 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-white mb-4 w-full flex items-center justify-center">Git</h3>
+                        <div class="skill-graphic">
+                            <div class="circular-progress" style="--progress-color: #8B5CF6;">
+                                <div class="inner-circle">
+                                    <span class="skill-icon">
+                                        <i class="fas fa-code-branch text-purple-500"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Diplômes -->
+        <section id="diplomes" class="py-20 bg-gray-800">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl font-bold text-center text-white mb-3">Mes Diplômes</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mb-16 rounded-full"></div>
+
+                <div class="relative">
+                    <!-- Timeline -->
+                    <div class="absolute h-full w-1 bg-blue-500 left-1/2 transform -translate-x-1/2"></div>
+
+                    <!-- Diplôme 1 - Bachelor (futur) -->
+                    <div class="diploma-item mb-24 relative flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-16 md:text-right order-2 md:order-1">
+                            <div
+                                class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-xl shadow-xl border-r-4 border-blue-500 hover:transform hover:scale-105 transition duration-300">
+                                <span
+                                    class="inline-block px-3 py-1 bg-blue-900/70 text-blue-300 rounded-full text-sm font-medium mb-2">2025
+                                    - 2026</span>
+                                <h3 class="text-3xl font-bold text-blue-400 mb-2">Bachelor</h3>
+                                <h4 class="text-2xl text-blue-300 mb-4">Développeur Web</h4>
+                                <p class="text-gray-300">My Digital School - Annecy 74000</p>
+                                <div class="mt-4 pt-4 border-t border-gray-700">
+                                    <p class="text-gray-400">Formation complète sur les technologies web avancées, la
+                                        gestion de projet agile et l'entrepreneuriat digital.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="z-10 order-1 md:order-2 mb-6 md:mb-0">
+                            <div
+                                class="w-14 h-14 rounded-full bg-blue-500 border-4 border-gray-900 flex items-center justify-center">
+                                <i class="fas fa-graduation-cap text-2xl text-white"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-16 order-3">
+                            <div
+                                class="h-48 w-48 rounded-full bg-[url('pictures/my-digital-school.png')] bg-cover bg-center border-4 border-gray-700 shadow-md transform hover:scale-105 transition mx-auto">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diplôme 2 - BTS -->
+                    <div class="diploma-item mb-24 relative flex flex-col md:flex-row-reverse items-center">
+                        <div class="md:w-1/2 md:pl-16 md:text-left order-2">
+                            <div
+                                class="bg-gradient-to-bl from-gray-900 to-gray-800 p-8 rounded-xl shadow-xl border-l-4 border-blue-500 hover:transform hover:scale-105 transition duration-300">
+                                <span
+                                    class="inline-block px-3 py-1 bg-blue-900/70 text-blue-300 rounded-full text-sm font-medium mb-2">2023
+                                    - 2025</span>
+                                <h3 class="text-3xl font-bold text-blue-400 mb-2">Brevet de Technicien Supérieur</h3>
+                                <h4 class="text-2xl text-blue-300 mb-4">SIO option SLAM</h4>
+                                <p class="text-gray-300">Lycée Saint Michel - Annecy 74000</p>
+                                <div class="mt-4 pt-4 border-t border-gray-700">
+                                    <p class="text-gray-400">Formation aux métiers du développement d'applications, à
+                                        l'architecture logicielle et à la cybersécurité.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pr-16 order-3">
+                            <div
+                                class="h-48 w-48 rounded-full bg-[url('pictures/st-michel.png')] bg-cover bg-center border-4 border-gray-700 shadow-md transform hover:scale-105 transition mx-auto">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diplôme 3 - Bac -->
+                    <div class="diploma-item relative flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-16 md:text-right order-2 md:order-1">
+                            <div
+                                class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-xl shadow-xl border-r-4 border-blue-500 hover:transform hover:scale-105 transition duration-300">
+                                <span
+                                    class="inline-block px-3 py-1 bg-blue-900/70 text-blue-300 rounded-full text-sm font-medium mb-2">2022
+                                    - 2023</span>
+                                <h3 class="text-3xl font-bold text-blue-400 mb-2">Baccalauréat Technologique</h3>
+                                <h4 class="text-2xl text-blue-300 mb-4">STI2D option SIN</h4>
+                                <p class="text-gray-300">Lycée Louis Lachenal - Argonay 74370</p>
+                                <div class="mt-4 pt-4 border-t border-gray-700">
+                                    <p class="text-gray-400">Formation aux sciences et technologies de l'industrie et du
+                                        développement durable, spécialisation en systèmes d'information et numérique.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="z-10 order-1 md:order-2 mb-6 md:mb-0">
+                            <div
+                                class="w-14 h-14 rounded-full bg-blue-500 border-4 border-gray-900 flex items-center justify-center">
+                                <i class="fas fa-award text-2xl text-white"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-16 order-3">
+                            <div
+                                class="h-48 w-48 rounded-full bg-[url('pictures/lachenal.png')] bg-cover bg-center border-4 border-gray-700 shadow-md transform hover:scale-105 transition mx-auto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Projets -->
+        <section id="projects" class="py-16 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl font-bold text-center text-white mb-3">Mes Projets</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mb-12 rounded-full"></div>
+
+                <!-- Carousel container -->
+                <div class="relative overflow-hidden">
+                    <!-- Navigation buttons -->
+                    <button id="prevProject" aria-label="Précédent"
+                        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-gray-700 hover:bg-blue-500 rounded-full flex items-center justify-center focus:outline-none transition-colors duration-300">
+                        <i class="fas fa-chevron-left text-white"></i>
+                    </button>
+                    <button id="nextProject" aria-label="Suivant"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-gray-700 hover:bg-blue-500 rounded-full flex items-center justify-center focus:outline-none transition-colors duration-300">
+                        <i class="fas fa-chevron-right text-white"></i>
+                    </button>
+
+                    <!-- Slider wrapper -->
+                    <div id="projectSlider" class="flex transition-transform duration-300">
+                        <!-- Projet 1 - Ecomobil: bleu → vert -->
+                        <div class="project-slide min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-3">
+                            <div
+                                class="project-card h-full bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.03] hover:shadow-2xl transition duration-300">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="pictures/ecomobil-project.png" alt="Ecomobil"
+                                        class="w-full h-full object-cover cursor-pointer project-image">
+                                </div>
+                                <div class="p-6 border-t-4 border-green-500 h-[calc(100%-16rem)]">
+                                    <h3 class="text-2xl font-bold text-green-400 mb-3">Ecomobil</h3>
+                                    <p class="text-gray-300 mb-4 h-20 overflow-y-auto">Description courte du projet et
+                                        des technologies utilisées.</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span
+                                            class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm">PHP</span>
+                                        <span
+                                            class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm">HTML</span>
+                                        <span
+                                            class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm">CSS</span>
+                                        <span
+                                            class="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm">JavaScript</span>
+                                    </div>
+                                    <div class="flex gap-4 mt-6 pt-4 border-t border-gray-700">
+                                        <a href="#"
+                                            class="flex-1 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-md text-white text-center transition">
+                                            <i class="fas fa-info-circle ml-2"></i> Plus d'infos
+                                        </a>
+                                        <a href="#"
+                                            class="flex-1 px-4 py-2 border border-green-500 hover:bg-green-500/20 rounded-md text-green-300 text-center transition">
+                                            <i class="fas fa-external-link-alt mr-2"></i>Demo
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 2 - Emotion Recognizer reste inchangé -->
+                        <div class="project-slide min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-3">
+                            <div
+                                class="project-card h-full bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.03] hover:shadow-2xl transition duration-300">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="pictures/emotion-recognizer-project.png" alt="Emotion Recognizer"
+                                        class="w-full h-full object-cover cursor-pointer project-image">
+                                </div>
+                                <div class="p-6 border-t-4 border-purple-500 h-[calc(100%-16rem)]">
+                                    <h3 class="text-2xl font-bold text-purple-400 mb-3">Emotion Recognizer</h3>
+                                    <p class="text-gray-300 mb-4 h-20 overflow-y-auto">Une application mobile
+                                        développée avec des technologies modernes.</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span
+                                            class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm">React
+                                            Native</span>
+                                        <span
+                                            class="px-3 py-1 bg-purple-900/50 text-purple-300 rounded-full text-sm">Firebase</span>
+                                    </div>
+                                    <div class="flex gap-4 mt-6 pt-4 border-t border-gray-700">
+                                        <a href="#"
+                                            class="flex-1 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-md text-white text-center transition">
+                                            <i class="fas fa-info-circle ml-2"></i> Plus d'infos
+                                        </a>
+                                        <a href="#"
+                                            class="flex-1 px-4 py-2 border border-purple-500 hover:bg-purple-500/20 rounded-md text-purple-300 text-center transition">
+                                            <i class="fas fa-external-link-alt mr-2"></i>Demo
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 3 - Vermeer: teal → marron beige -->
+                        <div class="project-slide min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-3">
+                            <div
+                                class="project-card h-full bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.03] hover:shadow-2xl transition duration-300">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="pictures/vermeer-project.png" alt="Projet vermeer"
+                                        class="w-full h-full object-cover cursor-pointer project-image">
+                                </div>
+                                <div class="p-6 border-t-4 border-amber-800 h-[calc(100%-16rem)]">
+                                    <h3 class="text-2xl font-bold text-amber-600 mb-3">Projet Vermeer</h3>
+                                    <p class="text-gray-300 mb-4 h-20 overflow-y-auto">Un projet complet avec frontend,
+                                        backend et base de données.</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span
+                                            class="px-3 py-1 bg-amber-900/50 text-amber-500 rounded-full text-sm">Node.js</span>
+                                        <span
+                                            class="px-3 py-1 bg-amber-900/50 text-amber-500 rounded-full text-sm">Express</span>
+                                        <span
+                                            class="px-3 py-1 bg-amber-900/50 text-amber-500 rounded-full text-sm">MongoDB</span>
+                                    </div>
+                                    <div class="flex gap-4 mt-6 pt-4 border-t border-gray-700">
+                                        <a href="#"
+                                            class="flex-1 px-4 py-2 bg-amber-700 hover:bg-amber-800 rounded-md text-white text-center transition">
+                                            <i class="fas fa-info-circle ml-2"></i> Plus d'infos
+                                        </a>
+                                        <a href="#"
+                                            class="flex-1 px-4 py-2 border border-amber-700 hover:bg-amber-700/20 rounded-md text-amber-500 text-center transition">
+                                            <i class="fas fa-external-link-alt mr-2"></i>Demo
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 4 - Musée: amber → bleu foncé -->
+                        <div class="project-slide min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-3">
+                            <div
+                                class="project-card h-full bg-gray-800 rounded-xl overflow-hidden shadow-lg transform hover:scale-[1.03] hover:shadow-2xl transition duration-300">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="pictures/musee-project.png" alt="Projet musée"
+                                        class="w-full h-full object-cover cursor-pointer project-image">
+                                </div>
+                                <div class="p-6 border-t-4 border-blue-700 h-[calc(100%-16rem)]">
+                                    <h3 class="text-2xl font-bold text-blue-500 mb-3">Projet Musée</h3>
+                                    <p class="text-gray-300 mb-4 h-20 overflow-y-auto">Un projet complet avec frontend,
+                                        backend et base de données.</p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span
+                                            class="px-3 py-1 bg-blue-900/50 text-blue-400 rounded-full text-sm">Node.js</span>
+                                        <span
+                                            class="px-3 py-1 bg-blue-900/50 text-blue-400 rounded-full text-sm">Express</span>
+                                        <span
+                                            class="px-3 py-1 bg-blue-900/50 text-blue-400 rounded-full text-sm">MongoDB</span>
+                                    </div>
+                                    <div class="flex gap-4 mt-6 pt-4 border-t border-gray-700">
+                                        <a href="#"
+                                            class="flex-1 px-4 py-2 bg-blue-700 hover:bg-blue-800 rounded-md text-white text-center transition">
+                                            <i class="fas fa-info-circle ml-2"></i> Plus d'infos
+                                        </a>
+                                        <a href="#"
+                                            class="flex-1 px-4 py-2 border border-blue-600 hover:bg-blue-700/20 rounded-md text-blue-400 text-center transition">
+                                            <i class="fas fa-external-link-alt mr-2"></i>Demo
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dots container -->
+                <div class="flex justify-center mt-8 gap-4 carousel-dots-container"></div>
+            </div>
+        </section>
+
+        <!-- Section Veille Technologique -->
+        <section id="veille-techno" class="py-16 bg-gray-800">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl font-bold text-center text-white mb-3">Veille Technologique</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mb-12 rounded-full"></div>
+
+                <div class="bg-gray-900 rounded-xl shadow-xl p-8 max-w-4xl mx-auto">
+                    <h3 class="text-3xl font-bold text-blue-400 mb-6">La Fusion Nucléaire : l'énergie de demain</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Colonne de gauche -->
+                        <div>
+                            <div class="mb-8">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-3">
+                                        <i class="fas fa-atom text-blue-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-semibold text-blue-300">Définition</h4>
+                                </div>
+                                <p class="text-gray-300">
+                                    La fusion nucléaire est un processus dans lequel deux noyaux atomiques légers (souvent des isotopes de l'hydrogène) fusionnent pour former un noyau plus lourd, en libérant une grande quantité d'énergie.
+                                </p>
+                                <p class="text-gray-300 mt-2">
+                                    C'est la réaction qui alimente les étoiles, y compris notre Soleil.
+                                </p>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-3">
+                                        <i class="fas fa-cogs text-blue-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-semibold text-blue-300">Principe technique</h4>
+                                </div>
+                                <p class="text-gray-300 mb-3">
+                                    Conditions extrêmes nécessaires : température de plusieurs millions de degrés, haute pression, confinement du plasma.
+                                </p>
+                                <p class="text-gray-300 mb-2">Deux principales technologies :</p>
+                                <ul class="text-gray-300 space-y-2 list-disc pl-6">
+                                    <li>Tokamak : chambre en forme d'anneau utilisant des champs magnétiques (ex : projet ITER).</li>
+                                    <li>Laser à inertie : lasers ultra-puissants pour comprimer le combustible (ex : NIF aux USA).</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-3">
+                                        <i class="fas fa-bolt text-blue-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-semibold text-blue-300">Pourquoi c'est une révolution énergétique ?</h4>
+                                </div>
+                                <div class="bg-gray-800/50 rounded-lg p-4">
+                                    <table class="w-full text-gray-300">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-left py-2 text-blue-300">Avantages</th>
+                                                <th class="text-left py-2 text-blue-300">Détails</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="py-2"><i class="fas fa-battery-full text-green-400 mr-2"></i>Énergie abondante</td>
+                                                <td class="py-2">Très grande quantité produite à partir de peu de matière</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2"><i class="fas fa-leaf text-green-400 mr-2"></i>Pas d'émissions de CO₂</td>
+                                                <td class="py-2">Énergie propre et non fossile</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2"><i class="fas fa-recycle text-green-400 mr-2"></i>Déchets moins radioactifs</td>
+                                                <td class="py-2">Comparé à la fission nucléaire classique</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2"><i class="fas fa-lock text-green-400 mr-2"></i>Sécurité accrue</td>
+                                                <td class="py-2">Pas de réaction en chaîne incontrôlable</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Colonne de droite -->
+                        <div>
+                            <div class="mb-8">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mr-3">
+                                        <i class="fas fa-flask text-purple-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-semibold text-purple-300">Exemples et avancements récents</h4>
+                                </div>
+                                <ul class="text-gray-300 space-y-3 list-none">
+                                    <li class="flex items-start">
+                                        <span class="h-6 w-6 rounded-full bg-purple-700/30 flex items-center justify-center mt-0.5 mr-2"><i class="fas fa-star text-purple-300 text-xs"></i></span>
+                                        <div>
+                                            <span class="font-semibold text-purple-200">ITER (France) :</span> Projet international visant à créer le premier réacteur à fusion expérimental.
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="h-6 w-6 rounded-full bg-purple-700/30 flex items-center justify-center mt-0.5 mr-2"><i class="fas fa-star text-purple-300 text-xs"></i></span>
+                                        <div>
+                                            <span class="font-semibold text-purple-200">JET (UK) :</span> A battu un record de production d'énergie par fusion en 2023.
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="h-6 w-6 rounded-full bg-purple-700/30 flex items-center justify-center mt-0.5 mr-2"><i class="fas fa-star text-purple-300 text-xs"></i></span>
+                                        <div>
+                                            <span class="font-semibold text-purple-200">NIF (USA) :</span> A réussi une ignition (production d'énergie > énergie injectée) en 2022.
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="h-6 w-6 rounded-full bg-purple-700/30 flex items-center justify-center mt-0.5 mr-2"><i class="fas fa-star text-purple-300 text-xs"></i></span>
+                                        <div>
+                                            <span class="font-semibold text-purple-200">Startups privées :</span> Commonwealth Fusion Systems, TAE Technologies, Helion...
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center mr-3">
+                                        <i class="fas fa-exclamation-triangle text-yellow-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-semibold text-yellow-300">Défis à relever</h4>
+                                </div>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li><i class="fas fa-angle-right text-yellow-500 mr-2"></i>Atteindre une production nette d'énergie sur une durée prolongée.</li>
+                                    <li><i class="fas fa-angle-right text-yellow-500 mr-2"></i>Gérer le confinement du plasma.</li>
+                                    <li><i class="fas fa-angle-right text-yellow-500 mr-2"></i>Maîtriser les matériaux résistant aux hautes températures.</li>
+                                    <li><i class="fas fa-angle-right text-yellow-500 mr-2"></i>Réduire les coûts et la complexité technologique.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-8">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center mr-3">
+                                        <i class="fas fa-calendar-alt text-teal-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-semibold text-teal-300">Perspectives</h4>
+                                </div>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li><i class="fas fa-check-circle text-teal-500 mr-2"></i>Démarrage des essais à chaud d'ITER : prévu à partir de 2035.</li>
+                                    <li><i class="fas fa-check-circle text-teal-500 mr-2"></i>Commercialisation possible dans la seconde moitié du XXIe siècle.</li>
+                                    <li><i class="fas fa-check-circle text-teal-500 mr-2"></i>Complément aux énergies renouvelables : vers une mixité énergétique propre.</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-3">
+                                        <i class="fas fa-book text-blue-400"></i>
+                                    </div>
+                                    <h4 class="text-xl font-semibold text-blue-300">Sources fiables</h4>
+                                </div>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li><a href="https://www.iter.org" target="_blank" class="text-blue-400 hover:underline">https://www.iter.org</a></li>
+                                    <li><a href="https://www.cea.fr/Pages/domaines-recherche/energies/fusion-thermonucleaire-controlee.aspx" target="_blank" class="text-blue-400 hover:underline">CEA - Commissariat à l'énergie atomique</a></li>
+                                    <li><a href="https://www.technologyreview.com/topic/energy/" target="_blank" class="text-blue-400 hover:underline">Articles du MIT Technology Review</a></li>
+                                    <li><a href="https://www.cnrs.fr/fr/recherche-fusion-nucleaire" target="_blank" class="text-blue-400 hover:underline">Reportages scientifiques (CNRS, ARTE)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" class="py-16 bg-gray-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl font-bold text-center text-white mb-12">Contact</h2>
+
+                <div class="flex flex-col md:flex-row gap-8">
+                    <!-- Informations de contact -->
+                    <div class="md:w-1/2 bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-blue-400 mb-6">Mes coordonnées</h3>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-blue-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">Email</p>
+                                    <a href="mailto:votre.email@example.com"
+                                        class="text-blue-400 hover:text-blue-300">nathan.gris74@gmail.com.com</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mr-4">
+                                    <i class="fab fa-linkedin text-blue-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">LinkedIn</p>
+                                    <a href="https://linkedin.com/in/nathan-gris-9848252a5/" target="_blank"
+                                        class="text-blue-400 hover:text-blue-300">linkedin.com/in/nathan-gris-9848252a5/</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mr-4">
+                                    <i class="fab fa-github text-blue-400 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">GitHub</p>
+                                    <a href="https://github.com/0MyTiX0" target="_blank"
+                                        class="text-blue-400 hover:text-blue-300">github.com/votre-profil</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulaire de contact -->
+                    <div class="md:w-1/2 bg-gray-800 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-blue-400 mb-6">Envoyez-moi un message</h3>
+
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-300 mb-2">Nom</label>
+                                <input type="text" id="name"
+                                    class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-300 mb-2">Email</label>
+                                <input type="email" id="email"
+                                    class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-300 mb-2">Message</label>
+                                <textarea id="message" rows="5"
+                                    class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                                Envoyer
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
