@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Animation du titre "Junior Web Developer"
   const titleAbout = document.getElementById("title-about");
   if (titleAbout) {
+    // Découper le texte en lettres individuelles pour l'animation
     const text = titleAbout.innerText.trim();
     titleAbout.innerHTML = text
       .split("")
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     gsap.set("#title-about span", { perspective: 400 });
 
+    // Animation d'apparition des lettres
     gsap.timeline({ onComplete: startWaveLoop })
       .from("#title-about span", {
         duration: 1,
@@ -25,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         stagger: 0.06,
       });
 
+    // Animation en boucle pour créer un effet de vague
     function startWaveLoop() {
       document.querySelectorAll("#title-about span").forEach((letter, i) => {
         gsap.timeline({ delay: i * 0.08, repeat: -1, repeatDelay: 2.5 })
@@ -41,10 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const menu = document.getElementById('menu');
 
   if (menuToggle && menu) {
+    // Afficher/masquer le menu sur mobile
     menuToggle.addEventListener('click', () => menu.classList.toggle('hidden'));
   }
 
   if (navbar) {
+    // Modifier l'apparence de la barre de navigation au défilement
     window.addEventListener('scroll', function () {
       if (window.scrollY > 50) {
         navbar.classList.add('bg-gray-900/90', 'backdrop-blur-sm', 'shadow-lg', 'py-2');
@@ -61,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navLinks = document.querySelectorAll('.nav-link');
 
   window.addEventListener('scroll', function () {
+    // Identifier la section actuellement visible
     let current = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
@@ -70,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    // Mettre à jour les liens de navigation
     navLinks.forEach(link => {
       link.classList.remove('text-blue-400');
       const span = link.querySelector('span');
@@ -84,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Animation des compétences
   const skillsSection = document.getElementById('skills');
   if (skillsSection) {
+    // Animation initiale des cartes de compétences
     const skillFilters = document.querySelectorAll('.skill-filter');
     const skillCards = document.querySelectorAll('.skill-card');
     const skillsGrid = document.getElementById('skills-grid');
@@ -113,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let isAnimating = false;
 
     function filterSkills(category) {
+      // Filtrer les compétences par catégorie
       if (isAnimating || category === activeCategory) return;
       isAnimating = true;
       activeCategory = category;
@@ -180,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }, "-=0.3");
     }
 
+    // Gestion des clics sur les filtres
     skillFilters.forEach(filter => {
       filter.addEventListener('click', function () {
         if (isAnimating) return;
@@ -199,6 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
+    // Animation au survol des cartes de compétences
     skillCards.forEach(card => {
       card.addEventListener('mouseenter', () => {
         gsap.to(card, { y: -10, boxShadow: "0 15px 30px rgba(0, 0, 0, 0.3)", duration: 0.3, ease: "power2.out" });
@@ -209,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Carousel functionality for the projects section
+  // Carousel pour la section projets
   const projectSlider = document.getElementById("projectSlider");
   const prevButton = document.getElementById("prevProject");
   const nextButton = document.getElementById("nextProject");
@@ -220,6 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let visibleProjects = 3;
 
   function createDots() {
+    // Créer des points pour le carousel
     dotsContainer.innerHTML = "";
     const totalDots = Math.ceil(projectSlides.length - visibleProjects + 1);
     for (let i = 0; i < totalDots; i++) {
@@ -235,6 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function updateDots() {
+    // Mettre à jour l'état des points
     const dots = dotsContainer.querySelectorAll(".carousel-dot");
     dots.forEach((dot, index) => {
       dot.classList.toggle("bg-blue-500", index === currentIndex);
@@ -243,6 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function updateVisibleProjects() {
+    // Adapter le nombre de projets visibles selon la taille de l'écran
     const screenWidth = window.innerWidth;
     if (screenWidth >= 1280) {
       visibleProjects = 3;
@@ -256,6 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function updateCarousel() {
+    // Mettre à jour la position du carousel
     const slideWidth = projectSlides[0].offsetWidth;
     const offset = currentIndex * slideWidth;
     projectSlider.style.transform = `translateX(-${offset}px)`;
@@ -267,6 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   prevButton.addEventListener("click", () => {
+    // Déplacer le carousel vers la gauche
     if (currentIndex > 0) {
       currentIndex--;
       updateCarousel();
@@ -274,6 +290,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   nextButton.addEventListener("click", () => {
+    // Déplacer le carousel vers la droite
     if (currentIndex < projectSlides.length - visibleProjects) {
       currentIndex++;
       updateCarousel();
@@ -284,30 +301,35 @@ document.addEventListener("DOMContentLoaded", function () {
   updateVisibleProjects();
 });
 
-// JavaScript for handling modal functionality
+// Gestion des modals pour les images des projets
 document.querySelectorAll('.project-image').forEach(image => {
   image.addEventListener('click', () => {
-      const modal = document.getElementById('image-modal');
-      const modalImage = document.getElementById('modal-image');
-      modalImage.src = image.src;
-      modal.classList.remove('hidden');
+    // Ouvrir le modal avec l'image cliquée
+    const modal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    modalImage.src = image.src;
+    modal.classList.remove('hidden');
   });
 });
 
 document.getElementById('close-modal').addEventListener('click', () => {
+  // Fermer le modal
   document.getElementById('image-modal').classList.add('hidden');
 });
 
 document.getElementById('image-modal').addEventListener('click', (e) => {
   if (e.target === e.currentTarget) {
-      e.currentTarget.classList.add('hidden');
+    // Fermer le modal si on clique en dehors de l'image
+    e.currentTarget.classList.add('hidden');
   }
 });
 
 function openModal(modalId) {
+  // Ouvrir un modal spécifique
   document.getElementById(modalId).classList.remove('hidden');
 }
 
 function closeModal(modalId) {
+  // Fermer un modal spécifique
   document.getElementById(modalId).classList.add('hidden');
 }

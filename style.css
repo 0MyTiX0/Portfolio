@@ -1,9 +1,10 @@
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Défilement fluide pour les ancres */
 }
 
 /* Styles pour les éléments graphiques des cartes de compétences - non remplaçables par Tailwind */
 .skill-graphic {
+  /* Conteneur pour les graphiques circulaires */
   margin-top: 8px;
   width: 100%;
   display: flex;
@@ -13,6 +14,7 @@ html {
 }
 
 .circular-progress {
+  /* Cercle extérieur avec effet de glow */
   position: relative;
   width: 60px;
   height: 60px;
@@ -27,6 +29,7 @@ html {
 }
 
 .circular-progress::before {
+  /* Effet de pulsation autour du cercle */
   content: '';
   position: absolute;
   width: 100%;
@@ -39,6 +42,7 @@ html {
 }
 
 .inner-circle {
+  /* Cercle intérieur avec l'icône */
   position: absolute;
   width: 45px;
   height: 45px;
@@ -72,6 +76,7 @@ html {
 
 /* Effet d'éclat lors du survol - difficile à faire avec Tailwind */
 .skill-card:hover .circular-progress {
+  /* Effet au survol des cartes de compétences */
   box-shadow: 0 0 15px 5px var(--progress-color);
   transform: scale(1.05);
   opacity: 1;
@@ -79,11 +84,13 @@ html {
 
 /* Uniquement pour les titres très longs qui ont besoin d'une taille spécifique */
 .skill-card h3.long-title {
+  /* Ajustements pour les titres longs */
   font-size: 1.3rem;
 }
 
 /* Pour les très petits écrans - ajustement spécifique */
 @media (max-width: 640px) {
+  /* Media query pour les petits écrans */
   .skill-card h3.long-title {
     font-size: 1.2rem;
   }
